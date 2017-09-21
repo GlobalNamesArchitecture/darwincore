@@ -33,7 +33,7 @@ var _ = Describe("Eml", func() {
 
 		It("injests eml data", func() {
 			emlBody := testData("./testdata/eml.xml")
-			Expect(eml.ReadEML(emlBody)).To(Equal(expectedEML))
+			Expect(eml.Read(emlBody)).To(Equal(expectedEML))
 		})
 	})
 })
