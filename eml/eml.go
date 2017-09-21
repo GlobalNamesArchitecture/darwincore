@@ -1,13 +1,13 @@
-// EmlXML package reads and creates eml.xml files that contain provenance
+// Eml package reads and creates eml.xml files that contain provenance
 // metadata from DarwinCore Archive files. EML (Ecological Metadata Language)
 // is a metadata standard originally developed for the ecoloty discipline.
 // GBIF uses it to keep metadata about DarwinCore Archive packages.
-package emlxml
+package eml
 
 import (
 	"encoding/xml"
 
-	"github.com/dimus/darwincore/util"
+	"github.com/GlobalNamesArchitecture/darwincore/util"
 )
 
 type EML struct {
@@ -42,8 +42,8 @@ type Distribution struct {
 }
 
 func ReadEML(e []byte) EML {
-	var eml EML
-	err := xml.Unmarshal(e, &eml)
+	var emlxml EML
+	err := xml.Unmarshal(e, &emlxml)
 	util.Check(err)
-	return eml
+	return emlxml
 }
