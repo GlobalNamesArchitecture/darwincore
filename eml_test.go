@@ -2,20 +2,12 @@ package darwincore_test
 
 import (
 	"encoding/xml"
-	"io/ioutil"
 
 	"github.com/GlobalNamesArchitecture/darwincore/eml"
-	"github.com/GlobalNamesArchitecture/darwincore/util"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
-
-func testData() []byte {
-	emlData, err := ioutil.ReadFile("./testdata/eml.xml")
-	util.Check(err)
-	return emlData
-}
 
 var _ = Describe("Eml", func() {
 	Describe("ReadEML", func() {
@@ -40,7 +32,7 @@ var _ = Describe("Eml", func() {
 		}
 
 		It("injests eml data", func() {
-			emlBody := testData()
+			emlBody := testData("./testdata/eml.xml")
 			Expect(eml.ReadEML(emlBody)).To(Equal(expectedEML))
 		})
 	})
