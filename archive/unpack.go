@@ -5,17 +5,26 @@ package archive
 import (
 	"github.com/dimus/gnidump/util"
 	filetype "gopkg.in/h2non/filetype.v1"
-	types "gopkg.in/h2non/filetype.v1/types"
 )
 
 type FilePath string
+
+type ZipType struct {
+	Path FilePath
+	MIME string
+}
+
+type GzipType struct {
+	Path FilePath
+	MIME string
+}
 
 // Extracts files from the archive.
 func Extract(p FilePath) {
 }
 
-func FileType(p FilePath) types.Type {
+func FileType(p FilePath) string {
 	t, err := filetype.MatchFile(string(p))
 	util.Check(err)
-	return t
+	return t.MIME.Subtype
 }

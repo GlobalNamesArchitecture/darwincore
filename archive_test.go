@@ -17,7 +17,7 @@ var _ = Describe("Archive", func() {
 		util.Check(err)
 		for _, v := range files {
 			path := fmt.Sprintf("%s/%s", dir, v.Name())
-			fmt.Println(archive.FileType(FilePath(path)))
+			fmt.Println(archive.FileType(archive.FilePath(path)))
 		}
 
 	})
